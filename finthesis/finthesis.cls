@@ -75,8 +75,8 @@
 % lstlisting
 \renewcommand*{\lstlistingname}{Листинг}
 \newlength{\MaxSizeOfLineNumbers}
+\newlength{\LineNumCharWidth}
 \newcommand{\setlstmaxlinedigits}[1]{%
-    \newlength{\LineNumCharWidth}%
     \settowidth{\LineNumCharWidth}{\scriptsize 9}%
     \setlength{\MaxSizeOfLineNumbers}{\dimexpr\LineNumCharWidth*#1+10pt\relax}%
 }
