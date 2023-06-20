@@ -84,7 +84,6 @@
 \definecolor{finNumber}{HTML}{949698}
 \definecolor{finRule}{HTML}{949698}
 \definecolor{finKeyword}{HTML}{228B22}
-\definecolor{finNdKeyword}{HTML}{228B22}
 \definecolor{finComment}{rgb}{0.127,0.427,0.514}
 \definecolor{finString}{rgb}{0.639,0.082,0.082}
 \definecolor{finIdentifier}{HTML}{221E1F}
@@ -97,7 +96,6 @@
   numbers=left,
   numberstyle=\scriptsize\color{finNumber},
   keywordstyle=\color{finKeyword}\bfseries,
-  ndkeywordstyle=\color{finNdKeyword}\bfseries,
   commentstyle=\color{finComment}\ttfamily\itshape,
   stringstyle=\color{finString}\ttfamily,
   identifierstyle=\color{finIdentifier},
