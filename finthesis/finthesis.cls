@@ -42,7 +42,7 @@
 \RequirePackage{datetime2}
 \RequirePackage[style=numeric, sorting=none, defernumbers]{biblatex}
 \RequirePackage{csquotes}
-\RequirePackage{pdfpages}
+\RequirePackage[dvipsnames]{xcolor}
 \if@usehyperref%
     \if@pdfmetadata \RequirePackage[linktoc=all,pdfusetitle,pdflang=sr-Cyrl,pdfduplex=Simplex,pdfpicktraybypdfsize=true]{hyperref}%
     \else \RequirePackage[linktoc=all]{hyperref}\fi%
@@ -286,7 +286,7 @@
 \newcommand{\firsttitlepage}{\begin{titlepage}
     \bfseries
     \centering
-    
+
     {\fontsize{15pt}{15pt}\selectfont
     Универзитет у Крагујевцу\par\medskip
     Факултет инжењерских наука Универзитета у Крагујевцу\par}
@@ -296,7 +296,7 @@
     {\fontsize{18pt}{18pt}\selectfont\@fieldemptyhint{author}\par\vspace{30pt}}
     {\fontsize{24pt}{24pt}\selectfont\@fieldemptyhint{title}\par\vspace{30pt}}
     {\fontsize{18pt}{18pt}\selectfont\@thesistype\par}
-    
+
     \vfill
 
     {\fontsize{14pt}{14pt}\selectfont Крагујевац,
@@ -306,7 +306,7 @@
 
 \newcommand{\secondtitlepage}{\begin{titlepage}
     \bfseries
-    
+
     \begin{center}
         \fontsize{15pt}{15pt}\selectfont
         Универзитет у Крагујевцу\par\smallskip
@@ -332,7 +332,7 @@
         \fontsize{24pt}{24pt}\selectfont\@fieldemptyhint{title}\par\bigskip
         \fontsize{18pt}{18pt}\selectfont\@thesistype\par
     \end{center}
-    
+
     \vspace{\stretch{2}}
 
     \setlength{\@currentparskip}{\parskip}
@@ -350,7 +350,7 @@
         Оцена: \hrulefill\par
     \end{minipage}
 \end{titlepage}}
-    
+
 \newcommand{\thirdtitlepage}{\begin{titlepage}
     \fontsize{11pt}{11pt}\selectfont
     \@studentshouldbeginning%
@@ -388,24 +388,26 @@
         \par\mbox{}\\\hrulefill
     \end{varwidth}
 \end{titlepage}}
-    
+
 \newcommand{\fourthtitlepage}{\begin{titlepage}
     \ifx\@thesisapplicationfile\@empty
         \if@hints
-            \hspace{0pt}
+            \null
             \vfill
             На овој страни треба да се налази скенирана оверена пријава \thesiscase{ог}\ рада. Путања до датотеке која садржи пријаву дефинише се преко наредбе:
-            
+
             \centering\texttt{\string\thesisapplicationfile\{path\_to\_file.pdf\}}
             \vfill
-            \hspace{0pt}
+            \null
         \else
             \null
         \fi
     \else
-        \voffset=0cm
-        \hoffset=0cm
-        \includepdf[width=\paperwidth, height=\paperheight, keepaspectratio]{\@thesisapplicationfile}
+        \newgeometry{margin=0mm}
+        \parbox[][\paperheight][c]{\paperwidth}{
+            \centering
+            \includegraphics[width=\linewidth, height=\textheight, keepaspectratio]{\@thesisapplicationfile}
+        }
     \fi
 \end{titlepage}}
 
@@ -415,15 +417,15 @@
 
         \begin{otherlanguage*}{english}
             {\centering\large\bfseries Abstract\par}
-    
+
             \medskip
-    
+
             \ifx\@abstracten\@empty
                 \if@hints English abstract is defined via the command \texttt{\string\abstracten\{text\}}. \fi
             \else
                 \ignorespaces\@abstracten\par
             \fi
-    
+
             {\sloppy
             \textbf{Keywords:}
             \ifx\@keywordsen\@empty
@@ -445,7 +447,7 @@
         \else
             \ignorespaces\@abstractsr\par
         \fi
-        
+
         {\sloppy
         \textbf{Кључне речи:}
         \ifx\@keywordssr\@empty
@@ -454,7 +456,7 @@
         \else
             \ignorespaces\@keywordssr.\par
         \fi}
-        
+
         \clearpage
 }
 
