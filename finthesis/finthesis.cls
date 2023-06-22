@@ -313,7 +313,7 @@
         Факултет инжењерских наука Универзитета у Крагујевцу\par\medskip
         \includegraphics[height=22mm]{finthesis_assets/unikg_logo}
         \qquad
-        \includegraphics[height=22mm]{finthesis_assets/fink_logo}\par\smallskip
+        \includegraphics[height=22mm]{finthesis_assets/finkg_logo}\par\smallskip
     \end{center}
 
     {\fontsize{12pt}{12pt}\selectfont
