@@ -2,8 +2,8 @@
 \ProvidesClass{finthesis}[2022/08/08 Faculty of Engineering, University of Kragujevac thesis class]
 
 \newif\if@master
+\newif\if@diploma
 \newif\if@bachelor
-\newif\if@finalthesis
 \newif\if@hints
 \newif\if@usehyperref
 \newif\if@pdfmetadata
@@ -11,13 +11,13 @@
 
 \def\@nothesis{%
     \@masterfalse%
+    \@diplomafalse%
     \@bachelorfalse%
-    \@finalthesisfalse%
 }
 
 \DeclareOption{master}{\@nothesis\@mastertrue}
+\DeclareOption{diploma}{\@nothesis\@diplomatrue}
 \DeclareOption{bachelor}{\@nothesis\@bachelortrue}
-\DeclareOption{finalthesis}{\@nothesis\@finalthesistrue}
 \DeclareOption{hints}{\@hintstrue}
 \DeclareOption{nohints}{\@hintsfalse}
 \DeclareOption{usehyperref}{\@usehyperreftrue}
@@ -27,7 +27,7 @@
 \DeclareOption{pdfcoursesubject}{\@courseissubjecttrue}
 \DeclareOption{nopdfcoursesubject}{\@courseissubjectfalse}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-\ExecuteOptions{bachelor,nohints,usehyperref,pdfmetadata,nopdfcoursesubject}
+\ExecuteOptions{diploma,nohints,usehyperref,pdfmetadata,nopdfcoursesubject}
 \ProcessOptions*\relax
 
 % Base class and external package settings
@@ -258,11 +258,11 @@
     \gdef\@thesistype{Мастер рад}
     \gdef\@studtype{Мастер академске студије}
     \newcommand*{\thesiscase}[1]{мастер}
-\else\if@bachelor
+\else\if@diploma
     \gdef\@thesistype{дипломски рад}
     \gdef\@studtype{Основне академске студије}
     \newcommand*{\thesiscase}[1]{дипломск#1}
-\else\if@finalthesis
+\else\if@bachelor
     \gdef\@thesistype{завршни рад}
     \gdef\@studtype{Основне академске студије}
     \newcommand*{\thesiscase}[1]{завршн#1}
