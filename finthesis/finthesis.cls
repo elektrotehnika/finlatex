@@ -287,9 +287,9 @@
     \bfseries
     \centering
 
-    {\fontsize{15pt}{15pt}\selectfont
-    Универзитет у Крагујевцу\par\medskip
-    Факултет инжењерских наука Универзитета у Крагујевцу\par}
+    {\fontsize{16pt}{16pt}\selectfont
+    Факултет инжењерских наука\par\medskip
+    Универзитета у Крагујевцу\par}
 
     \vfill
 
@@ -309,7 +309,6 @@
 
     \begin{center}
         \fontsize{15pt}{15pt}\selectfont
-        Универзитет у Крагујевцу\par\smallskip
         Факултет инжењерских наука Универзитета у Крагујевцу\par\medskip
         \includegraphics[height=22mm]{finthesis_assets/unikg_logo}
         \qquad
@@ -465,3 +464,4 @@
     {\sloppy%
     \printbibliography[heading=bibintoc]}%
 }
+
