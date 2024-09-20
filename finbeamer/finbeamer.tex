@@ -1,0 +1,148 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[T1, T2A]{fontenc}
+\usepackage[english, serbianc]{babel}
+\usepackage{tikz}
+
+\definecolor{UniRed}{HTML}{d40019}
+\definecolor{UniGreen}{HTML}{3c671d}
+\definecolor{UniBlue}{HTML}{0062aa}
+\definecolor{UniPurple}{HTML}{69227f}
+\definecolor{UniAmber}{HTML}{fcb900}
+\definecolor{UniBlack}{HTML}{1b1918}
+\definecolor{FinCyan}{HTML}{6fdaf8}
+\definecolor{FinGray}{HTML}{c4c5c7}
+\definecolor{FinBlack}{HTML}{201d1e}
+\definecolor{TocSubsection}{HTML}{1F4D80}
+
+\usetheme{Warsaw}
+\usecolortheme{structure}
+\setbeamercolor{structure}{fg=UniBlue}
+\setbeamercolor{subsection in toc}{fg=TocSubsection}
+% \setbeamertemplate{description item}{\makebox[3em][l]{\insertdescriptionitem}}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{section in toc}[square]
+
+\newcommand\numbered{\setbeamertemplate{footline}{\vspace{-12pt}\hfill\usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\insertframenumber\,/\,\inserttotalframenumber\kern2pt\vskip2pt}}
+\newcommand\samenumbered{\setbeamertemplate{footline}{\vspace{-12pt}\hfill\usebeamercolor[fg]{page number in head/foot}\usebeamerfont{page number in head/foot}\insertframenumber\,/\,\inserttotalframenumber\kern2pt\vskip2pt}\addtocounter{framenumber}{-1}}
+\newcommand\unnumbered{\setbeamertemplate{footline}{}\addtocounter{framenumber}{-1}}
+
+% Избор логотипа на насловној страни:
+% \titlelogouni --- универзитетски лого
+% \titlelogofin --- факултетски лого
+% \titlelogoboth --- оба логотипа
+\newcommand{\titlelogofin}{\def\titlelogo{\begin{figure}\includegraphics[height=55pt]{./slike/grb/finkg_logo}\end{figure}}}
+\newcommand{\titlelogouni}{\def\titlelogo{\begin{figure}\includegraphics[height=55pt]{./slike/grb/unikg_logo}\end{figure}}}
+\newcommand{\titlelogoboth}{\def\titlelogo{\begin{figure}\includegraphics[height=55pt]{./slike/grb/unikg_logo}\qquad\includegraphics[height=55pt]{./slike/grb/finkg_logo}\end{figure}}}
+
+\titlelogoboth
+
+% Избор логотипа на подножју слајдова:
+% \footlogouni --- универзитетски лого
+% \footlogofin --- факултетски лого
+% \footlogo{...} --- произвољна слика
+\newcommand{\footlogo}[1]{\setbeamertemplate{background canvas}{%
+\ifnum\insertframenumber>0
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=south west] at (current page.south west) {\includegraphics[width=20pt]{#1}};
+    \end{tikzpicture}%
+\fi}}
+\newcommand{\footlogouni}{\footlogo{slike/grb/unikg_logo.pdf}}
+\newcommand{\footlogofin}{\footlogo{slike/grb/finkg_logo.pdf}}
+
+\footlogouni
+
+
+\title{\LARGE{Наслов презентације}}
+
+\author{Име и презиме\texorpdfstring{\vspace{-1em}}{}}%
+\institute{\textbf{Катедра за електротехнику и рачунарство}\\Факултет инжењерских наука Универзитета у Крагујевцу%
+\vspace{7pt}\titlelogo\vspace{-9pt}}
+\date{Крагујевац, \today}
+
+% Приказивање садржаја између поглавља
+% \AtBeginSection[]{%
+%     \begin{frame}{\contentsname}
+%         \tableofcontents[currentsection, hideallsubsections]
+%     \end{frame}%
+% }
+
+\begin{document}
+\numbered
+
+{\unnumbered
+\begin{frame}
+   \titlepage
+\end{frame}}
+
+\section*{Садржај}
+\begin{frame}{\secname}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Поглавље}
+\begin{frame}{\secname}
+    \begin{itemize}
+        \item Прва ставка
+        \item Друга ставка
+    \end{itemize}
+    \pause
+    
+    \medskip Пример:
+    \begin{enumerate}
+        \item Трећа ставка
+        \item Четврта ставка
+    \end{enumerate}
+\end{frame}
+
+\subsection{Потпоглавље}
+\begin{frame}{\secname: \subsecname}
+    \begin{columns}
+        \begin{column}{0.5\linewidth}
+            \begin{itemize}
+                \item Пета ставка
+                \item Шеста ставка
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.5\linewidth}
+            \begin{enumerate}
+                \item Седма ставка
+                \item Осма ставка
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+    \pause
+
+    \bigskip
+    \begin{description}
+        \item[Девета ставка] Опис девете ставке
+        \item[Десета ставка] Опис десете ставке
+    \end{description}
+\end{frame}
+
+\section{Резиме}
+\begin{frame}{\secname}
+    \begin{itemize}
+        \item Шаблон
+        \item Поглавља и потпоглавља
+        \item Енумерације
+        \item Паузе
+        \item Колоне
+    \end{itemize}
+\end{frame}
+
+\section*{Навигација за питања}
+% Са "sections=..." се одређује која поглавља се приказују
+{\setbeamertemplate{footline}{}\begin{frame}[noframenumbering]{\secname}
+    \begin{columns}[t]
+        \begin{column}{0.5\linewidth}
+            \tableofcontents[sections={2-4}]
+        \end{column}
+        \begin{column}{0.5\linewidth}
+            \tableofcontents[sections={5-}]
+        \end{column}
+    \end{columns}
+\end{frame}}
+
+\end{document}
