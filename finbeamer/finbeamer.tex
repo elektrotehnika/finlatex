@@ -34,12 +34,14 @@
 % \titlelogoboth --- оба логотипа
 \newcommand{\titlelogofin}{\def\titlelogo{\begin{figure}\includegraphics[height=55pt]{./slike/grb/finkg_logo}\end{figure}}}
 \newcommand{\titlelogouni}{\def\titlelogo{\begin{figure}\includegraphics[height=55pt]{./slike/grb/unikg_logo}\end{figure}}}
+\newcommand{\titleoldlogouni}{\def\titlelogo{\begin{figure}\includegraphics[height=55pt]{./slike/grb/unikg_oldlogo}\end{figure}}}
 \newcommand{\titlelogoboth}{\def\titlelogo{\begin{figure}\includegraphics[height=55pt]{./slike/grb/unikg_logo}\qquad\includegraphics[height=55pt]{./slike/grb/finkg_logo}\end{figure}}}
 
 \titlelogoboth
 
 % Избор логотипа на подножју слајдова:
 % \footlogouni --- универзитетски лого
+% \footlogouniold --- стари универзитетски лого
 % \footlogofin --- факултетски лого
 % \footlogo{...} --- произвољна слика
 \newcommand{\footlogo}[1]{\setbeamertemplate{background canvas}{%
@@ -48,11 +50,11 @@
         \node[anchor=south west] at (current page.south west) {\includegraphics[width=20pt]{#1}};
     \end{tikzpicture}%
 \fi}}
-\newcommand{\footlogouni}{\footlogo{slike/grb/unikg_logo.pdf}}
+\newcommand{\footlogouni}{\footlogo{slike/grb/unikg_logo.png}}
+\newcommand{\footoldlogouni}{\footlogo{slike/grb/unikg_oldlogo.pdf}}
 \newcommand{\footlogofin}{\footlogo{slike/grb/finkg_logo.pdf}}
 
 \footlogouni
-
 
 \title{\LARGE{Наслов презентације}}
 
